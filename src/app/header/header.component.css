@@ -1,0 +1,13 @@
+#header-row{
+    position:fixed;
+    padding:0px;
+}
+
+#navbar-row{
+    width:100%;
+    height:70px;
+    background:white;
+    border-bottom: 2px solid rgb(205,202,202);
+    margin:0 auto;
+    padding:15px 0px;
+}
