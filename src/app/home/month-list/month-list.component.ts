@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { MonthOverview } from '../../models/month-overview';
+import { HttpServiceService } from '../../http-service.service';
+
+import { Label } from '../../models/label';
 
 @Component({
   selector: 'app-month-list',
@@ -8,17 +10,14 @@ import { MonthOverview } from '../../models/month-overview';
   styleUrls: ['./month-list.component.css']
 })
 export class MonthListComponent implements OnInit {
-  months: MonthOverview[] = [];
+  months: Label[] = [];
 
-  constructor() { }
+  constructor(private apiService: HttpServiceService) { }
 
   ngOnInit(): void {
-    this.months.push({
-      name: "zack"
-    });
-
-    this.months.push({
-      name: "Emily"
+    this.apiService.getLabels().subscribe(labels => {
+      console.log(labels);
+      this.months = labels;
     });
   }
 

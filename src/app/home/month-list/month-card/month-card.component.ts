@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { MonthOverview } from '../../../models/month-overview';
+
+import { Label } from '../../../models/label';
 
 @Component({
   selector: 'app-month-card',
@@ -7,7 +8,7 @@ import { MonthOverview } from '../../../models/month-overview';
   styleUrls: ['./month-card.component.css']
 })
 export class MonthCardComponent implements OnInit {
-  @Input() month: MonthOverview;
+  @Input() month: Label;
 
   constructor() { }
 
