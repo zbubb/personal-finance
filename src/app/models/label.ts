@@ -1,6 +1,6 @@
-import { modelWrapper } from './model-wrapper';
+import { ModelWrapper } from './model-wrapper';
 
-export interface Label extends modelWrapper {
+export interface Label extends ModelWrapper {
     fields: LabelFields;
 }
 

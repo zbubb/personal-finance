@@ -1,4 +1,4 @@
-export interface modelWrapper {
+export interface ModelWrapper {
     model: string;
     pk: number;
 }
