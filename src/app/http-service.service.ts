@@ -12,7 +12,7 @@ export class HttpServiceService {
   private baseUrl: string;
 
   constructor(private http: HttpClient) {
-    this.baseUrl = environment.APIUrl + "api/";
+    this.baseUrl = environment.APIUrl + "api";
   }
 
   getLabels(): Observable<Label[]> {
