@@ -1,0 +1,12 @@
+.mat-card{
+    max-width: 500px;
+    margin-top: 30px;
+}
+
+.mat-card:hover{
+    cursor:pointer;
+    box-shadow:0px 0px 2px 1px grey;
+    background:rgb(230,230,230);
+    transform:scale(1.05);
+    transition-duration:200ms;
+  }

@@ -3,19 +3,27 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { environment } from '../environments/environment';
+
 import { Label } from './models/label';
+import { MonthOverview } from './models/month-overview';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpServiceService {
-  private baseUrl: string;
+  private apiUrl: string;
 
   constructor(private http: HttpClient) {
-    this.baseUrl = environment.APIUrl + "api";
+    this.apiUrl = environment.APIUrl + "api";
+  }
+
+  getMonthOverview(monthId: number, year: number): Observable<MonthOverview> {
+    const queryString = `${this.apiUrl}/month/${monthId}/year/${year}/overview`;
+    return this.http.get<MonthOverview>(queryString);
   }
 
   getLabels(): Observable<Label[]> {
-    return this.http.get<Label[]>(this.baseUrl);
+    const queryString = `${this.apiUrl}/labels`;
+    return this.http.get<Label[]>(queryString);
   }
 }
