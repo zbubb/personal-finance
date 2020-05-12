@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { MonthListComponent } from './home/month-list/month-list.component';
 import { MonthCardComponent } from './home/month-list/month-card/month-card.component';
+import { MonthDetailComponent } from './month-detail/month-detail.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MonthCardComponent } from './home/month-list/month-card/month-card.comp
     HomeComponent,
     HeaderComponent,
     MonthListComponent,
-    MonthCardComponent
+    MonthCardComponent,
+    MonthDetailComponent
   ],
   imports: [
     BrowserModule,

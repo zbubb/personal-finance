@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { environment } from '../environments/environment';
 
 import { Label } from './models/label';
+import { MonthEntry } from './models/month-entry';
 import { MonthOverview } from './models/month-overview';
 
 @Injectable({
@@ -20,6 +21,11 @@ export class HttpServiceService {
   getMonthOverview(monthId: number, year: number): Observable<MonthOverview> {
     const queryString = `${this.apiUrl}/month/${monthId}/year/${year}/overview`;
     return this.http.get<MonthOverview>(queryString);
+  }
+
+  getMonthEntries(monthId: number, year: number): Observable<MonthEntry[]> {
+    const queryString = `${this.apiUrl}/month/${monthId}/year/${year}/entries`;
+    return this.http.get<MonthEntry[]>(queryString);
   }
 
   getLabels(): Observable<Label[]> {

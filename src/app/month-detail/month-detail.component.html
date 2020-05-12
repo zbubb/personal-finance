@@ -1,0 +1,9 @@
+<div class="container">
+    <h1>{{months[monthId]}}</h1>
+    <h2>{{year}}</h2>
+    <ng-container *ngFor="let entry of entries">
+        <p>
+            {{labelMap.get(entry.fields.label)}}
+        </p>
+    </ng-container>
+</div>
