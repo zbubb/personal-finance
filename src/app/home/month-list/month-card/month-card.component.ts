@@ -15,12 +15,14 @@ export class MonthCardComponent implements OnInit {
   @Input() month: Month;
 
   monthOverview: MonthOverview;
+  isTotalPositive: boolean = false;
 
   constructor(private apiService: HttpServiceService) { }
 
   ngOnInit(): void {
     this.apiService.getMonthOverview(this.month.id, this.month.year).subscribe(overview => {
       this.monthOverview = overview;
+      this.isTotalPositive = this.monthOverview.total > 0;
     });
   }
 
