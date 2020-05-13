@@ -15,6 +15,9 @@ export class MonthDetailComponent implements OnInit {
   year: number;
   entries: MonthEntry[] = [];
   labelMap: Map<number, string> = new Map<number, string>();
+  income: number = 0;
+  expenses: number = 0;
+  total: number = 0;
  
   months = {
     0: "January",
@@ -45,6 +48,14 @@ export class MonthDetailComponent implements OnInit {
       });
       this.apiService.getMonthEntries(this.monthId, this.year).subscribe(entries => {
         this.entries = entries;
+        this.entries.forEach(entry => {
+          if (entry.fields.isPositive) {
+            this.income += entry.fields.amount;
+          } else {
+            this.expenses += entry.fields.amount;
+          }
+        });
+        this.total = this.income - this.expenses;
       });
     });
   }
