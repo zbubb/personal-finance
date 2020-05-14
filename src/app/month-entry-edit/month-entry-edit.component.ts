@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
 import { HttpServiceService } from '../http-service.service';
 
-import { Label } from '../models/label';
-import { MonthEntry } from '../models/month-entry';
+import { Label } from '../models/resources/label';
+import { MonthEntry } from '../models/resources/month-entry';
+import { CreateMonthEntryDto } from '../models/dtos/create-month-entry-dto';
 
 @Component({
   selector: 'app-month-entry-edit',
@@ -17,8 +18,12 @@ export class MonthEntryEditComponent implements OnInit {
   labels: Label[] = [];
   monthEntryForm: FormGroup;
 
-  constructor(private apiService: HttpServiceService, private route: ActivatedRoute, private fb: FormBuilder) {
-    this.createForm();
+  constructor(
+    private apiService: HttpServiceService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private fb: FormBuilder) {
+      this.createForm();
   }
 
   ngOnInit(): void {
@@ -51,7 +56,17 @@ export class MonthEntryEditComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log("Submit");
+    const formModel = this.monthEntryForm.value;
+    const createDto: CreateMonthEntryDto = {
+      entryDate: formModel.date,
+      amount: formModel.amount,
+      isPositive: formModel.isPositive,
+      label: formModel.label
+    };
+
+    this.apiService.editMonthEntry(this.monthEntry.pk, createDto).subscribe(resp => {
+      this.router.navigate(["/"]);
+    });
   }
 
 }

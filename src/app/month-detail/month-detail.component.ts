@@ -3,7 +3,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 
 import { HttpServiceService } from '../http-service.service';
 
-import { MonthEntry } from '../models/month-entry';
+import { MonthEntry } from '../models/resources/month-entry';
 
 @Component({
   selector: 'app-month-detail',

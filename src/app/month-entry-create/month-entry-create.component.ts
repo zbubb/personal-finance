@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 import { HttpServiceService } from '../http-service.service';
 
-import { Label } from '../models/label';
+import { Label } from '../models/resources/label';
+import { CreateMonthEntryDto } from '../models/dtos/create-month-entry-dto';
 
 @Component({
   selector: 'app-month-entry-create',
@@ -15,7 +16,7 @@ export class MonthEntryCreateComponent implements OnInit {
   labels: Label[] = [];
   monthEntryForm: FormGroup;
 
-  constructor(private apiService: HttpServiceService, private route: ActivatedRoute, private fb: FormBuilder) {
+  constructor(private apiService: HttpServiceService, private router: Router, private fb: FormBuilder) {
     this.createForm();
   }
 
@@ -35,7 +36,17 @@ export class MonthEntryCreateComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log("Submit");
+    const formModel = this.monthEntryForm.value;
+    const createDto: CreateMonthEntryDto = {
+      entryDate: formModel.date,
+      amount: formModel.amount,
+      isPositive: formModel.isPositive,
+      label: formModel.label
+    };
+
+    this.apiService.createMonthEntry(createDto).subscribe(resp => {
+      this.router.navigate(["/"]);
+    });
   }
 
 }

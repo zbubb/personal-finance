@@ -2,8 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 
 import { HttpServiceService } from '../../../http-service.service';
 
-import { Month } from '../../../models/month';
-import { MonthOverview } from '../../../models/month-overview';
+import { Month } from '../../../models/resources/month';
+import { MonthOverview } from '../../../models/resources/month-overview';
 
 @Component({
   selector: 'app-month-card',

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Month } from '../../models/month';
+import { Month } from '../../models/resources/month';
 
 @Component({
   selector: 'app-month-list',

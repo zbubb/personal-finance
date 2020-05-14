@@ -16,6 +16,7 @@ import { HeaderComponent } from './header/header.component';
 import { MonthListComponent } from './home/month-list/month-list.component';
 import { MonthCardComponent } from './home/month-list/month-card/month-card.component';
 import { MonthDetailComponent } from './month-detail/month-detail.component';
+import { LabelCreateComponent } from './label-create/label-create.component';
 import { MonthEntryEditComponent } from './month-entry-edit/month-entry-edit.component';
 import { MonthEntryCreateComponent } from './month-entry-create/month-entry-create.component';
 
@@ -27,6 +28,7 @@ import { MonthEntryCreateComponent } from './month-entry-create/month-entry-crea
     MonthListComponent,
     MonthCardComponent,
     MonthDetailComponent,
+    LabelCreateComponent,
     MonthEntryEditComponent,
     MonthEntryCreateComponent
   ],
