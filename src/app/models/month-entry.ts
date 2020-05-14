@@ -9,5 +9,6 @@ interface MonthEntryFields {
     entryDate: Date;
     amount: number;
     isPositive: boolean;
-    label: Label;
+    label: number;
+    // label: Label; TODO
 }

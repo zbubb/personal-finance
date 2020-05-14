@@ -1,6 +1,15 @@
 <div class="container">
-    <h1 class="mt-2">{{months[monthId]}} {{year}}</h1>
-    <h3>Month Net Total: {{total | currency}}</h3>
+    <div class="row">
+        <div class="col-8">
+            <h1 class="mt-2">{{months[monthId]}} {{year}}</h1>
+            <h3>Month Net Total:
+                <span [ngClass]="{'positive': total > 0, 'negative': total <= 0}">{{total | currency}}</span>
+            </h3>
+        </div>
+        <div class="col-4">
+            <button [routerLink]="['/month', 'entry', 'create']" class="btn mt-3">Create New Entry</button>
+        </div>
+    </div>
     <table class="table table-hover table-sm table-bordered">
         <thead class="thead-light">
             <tr>
@@ -11,7 +20,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let entry of entries">
+            <tr *ngFor="let entry of entries" class="clickable" [routerLink]="['/month', 'entry', entry.pk ,'edit']">
                 <td>{{labelMap.get(entry.fields.label)}}</td>
                 <td>{{entry.fields.entryDate | date: 'MM/dd/yyyy'}}</td>
                 <ng-container *ngIf="entry.fields.isPositive">

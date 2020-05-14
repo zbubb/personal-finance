@@ -2,3 +2,23 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.clickable:hover{
+    cursor:pointer;
+    transition-duration:0.3s;
+}
+
+.toolbar-spacer {
+    flex: 1 1 auto;
+}
+
+.btn{
+    background: rgb(95, 106, 116);
+    color:white;
+}
+  
+.btn:hover:enabled{
+    background:silver;
+    color:rgb(26,26,26);
+    transition-duration:0.3s;
+}

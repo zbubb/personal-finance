@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from "@angular/common/http";
+import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Material Modules
 import { MatCardModule } from "@angular/material/card";
+import { MatToolbarModule } from "@angular/material/toolbar";
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -14,6 +16,8 @@ import { HeaderComponent } from './header/header.component';
 import { MonthListComponent } from './home/month-list/month-list.component';
 import { MonthCardComponent } from './home/month-list/month-card/month-card.component';
 import { MonthDetailComponent } from './month-detail/month-detail.component';
+import { MonthEntryEditComponent } from './month-entry-edit/month-entry-edit.component';
+import { MonthEntryCreateComponent } from './month-entry-create/month-entry-create.component';
 
 @NgModule({
   declarations: [
@@ -22,14 +26,18 @@ import { MonthDetailComponent } from './month-detail/month-detail.component';
     HeaderComponent,
     MonthListComponent,
     MonthCardComponent,
-    MonthDetailComponent
+    MonthDetailComponent,
+    MonthEntryEditComponent,
+    MonthEntryCreateComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatCardModule
+    ReactiveFormsModule,
+    MatCardModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

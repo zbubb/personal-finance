@@ -23,6 +23,11 @@ export class HttpServiceService {
     return this.http.get<MonthOverview>(queryString);
   }
 
+  getMonthEntry(entryId: number): Observable<MonthEntry> {
+    const queryString = `${this.apiUrl}/month/entry/${entryId}`;
+    return this.http.get<MonthEntry>(queryString);
+  }
+
   getMonthEntries(monthId: number, year: number): Observable<MonthEntry[]> {
     const queryString = `${this.apiUrl}/month/${monthId}/year/${year}/entries`;
     return this.http.get<MonthEntry[]>(queryString);

@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <form [formGroup]="monthEntryForm">
+                <mat-toolbar>
+                    <mat-toolbar-row>
+                        <span>
+                            <h3>Edit Month Entry</h3>
+                        </span>
+                        <span class="toolbar-spacer"></span>
+                        <button (click)="onSubmit()" class="btn btn-lg">Submit</button>
+                    </mat-toolbar-row>
+                </mat-toolbar>
+                <div class="container mt-3">
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="dateInput">Entry Date</label>
+                                <input type="date" class="form-control" id="dateInput" formControlName="date">
+                            </div>
+                            <div class="form-group">
+                                <label for="amountInput">Amount</label>
+                                <input type="number" class="form-control" id="amountInput" formControlName="amount">
+                            </div>
+                            <div class="form-group">
+                                <label for="labelInput">Label</label>
+                                <select id="labelInput" class="form-control" formControlName="label">
+                                    <option *ngFor="let label of labels" [value]="label.pk">{{label.fields.label_text}}</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" formControlName="isPositive">
+                                <label class="ml-3">Income</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

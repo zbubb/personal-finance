@@ -3,11 +3,21 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
 import { MonthDetailComponent } from './month-detail/month-detail.component';
+import { MonthEntryEditComponent } from './month-entry-edit/month-entry-edit.component';
+import { MonthEntryCreateComponent } from './month-entry-create/month-entry-create.component';
 
 const routes: Routes = [
   {
     path: "month/:monthId/year/:year",
     component: MonthDetailComponent
+  },
+  {
+    path: "month/entry/create",
+    component: MonthEntryCreateComponent
+  },
+  {
+    path: "month/entry/:monthEntryId/edit",
+    component: MonthEntryEditComponent
   },
   {
     path: "",
